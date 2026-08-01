@@ -79,7 +79,7 @@ def players():
             SELECT player_id, player_name, role
             FROM players
             ORDER BY player_name
-            LIMIT 48;
+            LIMIT 32;
         """)
 
     players = cursor.fetchall()
@@ -178,7 +178,7 @@ def champions():
             JOIN champions c ON ps.champion_id = c.champion_id
             GROUP BY c.champion_id, c.champion_name
             ORDER BY games_played DESC
-            LIMIT 24
+            LIMIT 18
         """)
 
     champion_rows = cursor.fetchall()
