@@ -20,30 +20,27 @@ def get_db_connection():
 
 @app.route("/")
 def home():
-    try:
-        conn = get_db_connection()
-        cursor = conn.cursor(dictionary=True)
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
 
-        cursor.execute("SELECT COUNT(*) AS total_players FROM players")
-        total_players = cursor.fetchone()["total_players"]
+    cursor.execute("SELECT COUNT(*) AS total_players FROM players")
+    total_players = cursor.fetchone()["total_players"]
 
-        cursor.execute("SELECT COUNT(*) AS total_teams FROM teams")
-        total_teams = cursor.fetchone()["total_teams"]
+    cursor.execute("SELECT COUNT(*) AS total_teams FROM teams")
+    total_teams = cursor.fetchone()["total_teams"]
 
-        cursor.execute("SELECT COUNT(*) AS total_champions FROM champions")
-        total_champions = cursor.fetchone()["total_champions"]
+    cursor.execute("SELECT COUNT(*) AS total_champions FROM champions")
+    total_champions = cursor.fetchone()["total_champions"]
 
-        cursor.close()
-        conn.close()
+    cursor.close()
+    conn.close()
 
-        return render_template(
-            "index.html",
-            total_players=total_players,
-            total_teams=total_teams,
-            total_champions=total_champions
-        )
-    except Exception as e:
-        return f"Home page error: {e}", 500
+    return render_template(
+        "index.html",
+        total_players=total_players,
+        total_teams=total_teams,
+        total_champions=total_champions,
+    )
 
 @app.route("/players")
 def players():
