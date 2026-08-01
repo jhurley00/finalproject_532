@@ -1,0 +1,163 @@
+body {
+    margin: 0;
+    font-family: Trebuchet MS, Helvetica, sans-serif;
+    background-color: rgb(224, 224, 224);
+    color: rgb(0, 0, 0);
+}
+
+header {
+    background: rgb(17, 1, 61);
+    padding: 20px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+header a:hover {
+    color: rgb(130, 98, 218);
+}
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(48, 16, 138, 0.2);
+}
+
+.page-title {
+    margin-bottom: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.region-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th {
+    background: black;
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid white;
+}
+
+tr:hover {
+    background: white;
+}
+
+input[type="text"],
+select {
+    padding: 10px;
+}
+
+input[type="text"] {
+    width: 300px;
+}
+
+button {
+    padding: 10px 18px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: rgb(51, 51, 51);
+}
+
+.item-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 8px rgba(48, 16, 138, 0.2);
+    transition: transform 0.2s;
+}
+
+.item-card:hover {
+    transform: translateY(-3px);
+}
+
+.item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.item-card h3 {
+    margin: 10px 0 5px;
+}
+
+.item-card p {
+    margin: 0;
+    color: #666;
+}
+
+.region-block {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(48, 16, 138, 0.2);
+    padding: 10px 15px;
+}
+
+.region-block summary {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0;
+    list-style: none;
+    text-align: center;
+}
+
+.region-block summary::-webkit-details-marker {
+    display: none;
+}
+
+canvas {
+    max-width: 100%;
+    max-height: 400px;
+}

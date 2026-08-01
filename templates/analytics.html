@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analytics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+    <a href="/">Home</a>
+    <a href="/players">Players</a>
+    <a href="/teams">Teams</a>
+    <a href="/champions">Champions</a>
+    <a href="/analytics">Analytics</a>
+</header>
+
+<main>
+    <div class="card">
+        <h1 class="page-title">Analytics</h1>
+
+        <form method="GET" action="/analytics">
+            <label for="region">Filter by Region:</label>
+            <select name="region" id="region">
+                {% for region in regions %}
+                    <option value="{{ region }}" {% if region == selected_region %}selected{% endif %}>
+                        {{ region }}
+                    </option>
+                {% endfor %}
+            </select>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>Top Players by Kills</h2>
+        <canvas id="killsChart"></canvas>
+    </div>
+
+    <div class="card">
+        <h2>Top Champions by Games Played</h2>
+        <canvas id="championChart"></canvas>
+    </div>
+
+    <div class="card">
+        <h2>Top Teams by Win Rate</h2>
+        <canvas id="teamChart"></canvas>
+    </div>
+</main>
+
+#script things
+<script>
+const killerLabels = {{ top_killers | map(attribute='player_name') | list | tojson }};
+const killerData = {{ top_killers | map(attribute='total_kills') | list | tojson }};
+
+const championLabels = {{ top_champions | map(attribute='champion_name') | list | tojson }};
+const championData = {{ top_champions | map(attribute='games_played') | list | tojson }};
+
+const teamLabels = {{ team_win_rates | map(attribute='team_name') | list | tojson }};
+const teamData = {{ team_win_rates | map(attribute='win_rate') | list | tojson }};
+</script>
+
+<script src="{{ url_for('static', filename='js/analytics.js') }}"></script>
+
+</body>
+</html>

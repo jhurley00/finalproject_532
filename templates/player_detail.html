@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ player.player_name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <a href="/">Home</a>
+    <a href="/players">Players</a>
+    <a href="/teams">Teams</a>
+    <a href="/champions">Champions</a>
+    <a href="/analytics">Analytics</a>
+</header>
+
+<main>
+    <div class="card">
+        <h1 class="page-title">{{ player.player_name }}</h1>
+        <p><strong>Role:</strong> {{ player.role }}</p>
+    </div>
+
+    <div class="card">
+        <h2>Champion Statistics</h2>
+        <table>
+            <tr>
+                <th>Champion</th>
+                <th>Kills</th>
+                <th>Deaths</th>
+                <th>Assists</th>
+                <th>Total Gold</th>
+            </tr>
+            {% for stat in stats %}
+            <tr>
+                <td>{{ stat.champion_name }}</td>
+                <td>{{ stat.kills }}</td>
+                <td>{{ stat.deaths }}</td>
+                <td>{{ stat.assists }}</td>
+                <td>{{ stat.total_gold }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</main>
+
+</body>
+</html>

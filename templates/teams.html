@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teams</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+    <a href="/">Home</a>
+    <a href="/players">Players</a>
+    <a href="/teams">Teams</a>
+    <a href="/champions">Champions</a>
+    <a href="/analytics">Analytics</a>
+</header>
+
+<main>
+    <div class="card">
+        <h1 class="page-title">Teams</h1>
+    </div>
+
+    <div class="region-grid">
+        {% for region, region_teams in teams|groupby('region_name') %}
+        <details class="region-block">
+            <summary>{{ region }}</summary>
+
+            <div class="card-grid">
+                {% for team in region_teams %}
+                <div class="item-card">
+                    <h3>{{ team.team_name }}</h3>
+                </div>
+                {% endfor %}
+            </div>
+        </details>
+        {% endfor %}
+    </div>
+
+    <div class="card">
+        <h2>Teams by Region</h2>
+        <canvas id="regionChart"></canvas>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- distro of regions -->
+
+<script>
+const regionLabels = {{ region_counts | map(attribute='region_name') | list | tojson }};
+const regionData = {{ region_counts | map(attribute='team_count') | list | tojson }};
+</script>
+
+<script src="{{ url_for('static', filename='js/teams.js') }}"></script>
+
+</body>
+</html>

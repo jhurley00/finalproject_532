@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Players</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <a href="/">Home</a>
+    <a href="/players">Players</a>
+    <a href="/teams">Teams</a>
+    <a href="/champions">Champions</a>
+    <a href="/analytics">Analytics</a>
+</header>
+
+<main>
+    <div class="card">
+        <h1 class="page-title">Players</h1>
+
+        <form method="GET">
+            <input type="text" name="search" value="{{ search }}" placeholder="Search player">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <div class = 'atz'>
+        <p>
+        <a href="/players">All</a> |
+        <a href="/players?letter=0-9">0-9</a> |
+        <a href="/players?letter=A">A</a> |
+        <a href="/players?letter=B">B</a> |
+        <a href="/players?letter=C">C</a> |
+        <a href="/players?letter=D">D</a> |
+        <a href="/players?letter=E">E</a> |
+        <a href="/players?letter=F">F</a> |
+        <a href="/players?letter=G">G</a> |
+        <a href="/players?letter=H">H</a> |
+        <a href="/players?letter=I">I</a> |
+        <a href="/players?letter=J">J</a> |
+        <a href="/players?letter=K">K</a> |
+        <a href="/players?letter=L">L</a> |
+        <a href="/players?letter=M">M</a> |
+        <a href="/players?letter=N">N</a> |
+        <a href="/players?letter=O">O</a> |
+        <a href="/players?letter=P">P</a> |
+        <a href="/players?letter=Q">Q</a> |
+        <a href="/players?letter=R">R</a> |
+        <a href="/players?letter=S">S</a> |
+        <a href="/players?letter=T">T</a> |
+        <a href="/players?letter=U">U</a> |
+        <a href="/players?letter=V">V</a> |
+        <a href="/players?letter=W">W</a> |
+        <a href="/players?letter=X">X</a> |
+        <a href="/players?letter=Y">Y</a> |
+        <a href="/players?letter=Z">Z</a>
+        </p>
+    </div>
+
+    <div class="card-grid">
+        {% for player in players %}
+        <div class="item-card">
+            <h3>{{ player.player_name }}</h3>
+            <p>{{ player.role }}</p>
+            <p><a href="/player/{{ player.player_id }}">View Details</a></p>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+
+</body>
+</html>

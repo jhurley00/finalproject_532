@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LoL Esports Database</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <a href="/">Home</a>
+    <a href="/players">Players</a>
+    <a href="/teams">Teams</a>
+    <a href="/champions">Champions</a>
+    <a href="/analytics">Analytics</a>
+</header>
+
+<main>
+    <div class="card">
+        <h1 class="page-title">League of Legends eSports Data for the 2024 Season</h1>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <div class="stat">{{ total_players }}</div>
+            <div>Total Players</div>
+        </div>
+        <div class="card">
+            <div class="stat">{{ total_teams }}</div>
+            <div>Total Teams</div>
+        </div>
+        <div class="card">
+            <div class="stat">{{ total_champions }}</div>
+            <div>Total Champions</div>
+        </div>
+    </div>
+
+    <img
+        src="{{ url_for('static', filename='images/league-of-legends.jpg') }}"
+        alt="League of Legends title screen"
+        style="width: 650px; height: auto; display: block; margin: 0 auto;">
+
+</main>
+
+</body>
+</html>

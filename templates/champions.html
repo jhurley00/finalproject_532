@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Champions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <a href="/">Home</a>
+    <a href="/players">Players</a>
+    <a href="/teams">Teams</a>
+    <a href="/champions">Champions</a>
+    <a href="/analytics">Analytics</a>
+</header>
+
+<main>
+    <div class="card">
+        <h1 class="page-title">Champions</h1>
+
+        <form method="GET">
+            <input type="text"
+                name="search"
+                value="{{ search }}"
+                placeholder="Search champion">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <div class="card-grid">
+        {% for champion in champions %}
+        <div class="item-card">
+            <img
+                src="{{ url_for('static', filename='images/' + champion.champion_name + '_0.jpg') }}"
+                alt="{{ champion.champion_name }}"
+                class="item-image"
+            >
+            <h3>{{ champion.champion_name }}</h3>
+            <p>Games Played: {{ champion.games_played }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+
+</body>
+</html>
