@@ -6,6 +6,7 @@ This project is a full-stack database application built using MySQL, Python, Fla
 The application allows users to browse players, teams, and champions through a simple web interface while displaying statistics generated from SQL queries, including player performance, champion usage, and team win rates. The project demonstrates database design, SQL development, data preprocessing, and web application integration.
 
 Original data: https://oracleselixir.com/tools/downloads
+Live application: https://lol-esports-database.onrender.com/
 
 # Features
 - Normalized MySQL database design
